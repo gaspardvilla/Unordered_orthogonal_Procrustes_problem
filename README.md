@@ -1,1 +1,1 @@
-# non-ordered-procrustes-problem
+# Unordered Procrustes problem
