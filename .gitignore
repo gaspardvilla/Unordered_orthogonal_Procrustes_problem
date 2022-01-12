@@ -1,0 +1,9 @@
+# Object file
+*.o
+*.bz2
+*.csv
+*.pyc
+*.vscode
+*.asv
+*.pkl
+*.jpg
