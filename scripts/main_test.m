@@ -18,12 +18,12 @@ clc
 n = 10;
 d = 2;
 random = true;
-custom = 'spirale';
+custom = 'waves';
 [A, B, Q_true, X_true] = initialization(n, d, random, custom);
 
 % Initialization of the method we want to test
 options = options_init('perso ot', Q_true, X_true);
-options.wrong_init = true;
+options.wrong_init = false;
 
 
 %% Testing the method

@@ -13,7 +13,7 @@ clc
 n = 10;
 d = 2;
 random = true;
-custom = 'waves';
+custom = 'none';
 if strcmp(custom, 'waves') || strcmp(custom, 'spirale')
     n = 100;
 end
