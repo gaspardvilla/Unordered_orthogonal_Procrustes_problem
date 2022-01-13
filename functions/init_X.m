@@ -13,7 +13,7 @@ function X_0 = init_X(A, B, options)
     %% Code
 
     % Check if we want smart initialization or not
-    if options.forced_init
+    if options.smart_init
         % Smart initialization
         X_0 = smart_init_X(A, B);
     else

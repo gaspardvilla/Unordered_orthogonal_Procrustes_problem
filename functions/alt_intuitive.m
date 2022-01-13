@@ -14,7 +14,7 @@ function [Q_sol, X_sol] = alt_intuitive(A, B, options)
     %% Code
 
     % Initialization of X_t
-    X_t = init_X(A, B, options);
+    X_t = options.X_init;
 
     % First step
     Q_t = intuitive_orthogonal_approx(A, B, X_t, options);
@@ -27,7 +27,7 @@ function [Q_sol, X_sol] = alt_intuitive(A, B, options)
         Q_t = intuitive_orthogonal_approx(A, B, X_t, options);
         
         % Break rule
-        if inner_product(cost_matrix(A, B*Q_t), X_t) < options.stop_cond % 1e-3
+        if inner_product(cost_matrix(A, B*Q_t), X_t) < options.stop_cond
             break;
         end
     end
