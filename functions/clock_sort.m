@@ -1,6 +1,11 @@
 function A = clock_sort(A)
+    %% Description
+
     % The idea of this function is to sort the points in the matrix A in
-    % the clowise order.
+    % the clock-wise order. (For visualization only)
+
+
+    %% Code
 
     % Initialization
     x = A(:,1);
