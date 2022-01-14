@@ -1,5 +1,4 @@
-function visualization_orth_transf(A, B, Q_1, Q_2, options, ...
-                                            method_name_1, method_name_2)
+function visualization_orth_transf(A, B, options)
     %% Description
 
     % The idea of this function is to make a visualization of the two
@@ -9,6 +8,14 @@ function visualization_orth_transf(A, B, Q_1, Q_2, options, ...
 
 
     %% Code
+    % Get some parameters from options
+    Q_1 = options.Q_1;
+    method_name_1 = options.method_name_1;
+
+    if options.nb_methods == 2
+        Q_2 = options.Q_2;
+        method_name_2 = options.method_name_2;
+    end
 
     % Check if the initialization of A and B is custom or random
     if ~strcmp(options.custom, 'waves') && ~strcmp(options.custom, 'spirale')
@@ -22,19 +29,31 @@ function visualization_orth_transf(A, B, Q_1, Q_2, options, ...
     
     % Is we have customized data set
     if custom
-        subplot(1,2,1);
-        customized_plot(A, B, B*Q_1, options, method_name_1);
+        if options.nb_methods == 2
+            subplot(1,2,1);
+            customized_plot(A, B, B*Q_1, options, method_name_1);
+    
+            subplot(1,2,2);
+            customized_plot(A, B, B*Q_2, options, method_name_2);
 
-        subplot(1,2,2);
-        customized_plot(A, B, B*Q_2, options, method_name_2);
+        elseif options.nb_methods == 1
+            customized_plot(A, B, B*Q_1, options, method_name_1);
+
+        end
 
     % If we have random data set
     else
-        subplot(1,2,1);
-        uncustomized_plot(A, B, B*Q_1, options, method_name_1);
+        if options.nb_methods == 2
+            subplot(1,2,1);
+            uncustomized_plot(A, B, B*Q_1, options, method_name_1);
+    
+            subplot(1,2,2);
+            uncustomized_plot(A, B, B*Q_2, options, method_name_2);
 
-        subplot(1,2,2);
-        uncustomized_plot(A, B, B*Q_2, options, method_name_2);
+        elseif options.nb_methods == 1
+            uncustomized_plot(A, B, B*Q_1, options, method_name_1);
+
+        end
 
     end
 

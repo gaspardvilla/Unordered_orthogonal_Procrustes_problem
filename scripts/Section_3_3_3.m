@@ -31,6 +31,9 @@ options.verbosity = 0;
 options.max_iters = 100;
 options.stop_cond = 1e-3;
 
+% Number of methods tp test (only 2 here)
+options.nb_methods = 2;
+
 options.lambda_start = 1;
 options.lambda_min = 1e-6;
 options.alpha = 0.95;
@@ -89,9 +92,10 @@ disp(['Elegant methods is ', num2str(mean_speed), ' times faster than ' ...
 
 
 %% Visualization of the last test
-int_method = 'alternating algorithm for intuitive methods';
-ele_method = 'alternating algorithm for elegant methods';
-visualization_orth_transf(A, B, Q_intuitive, Q_elegant, options, ...
-                                                int_method, ele_method);
+options.method_name_1 = 'alternating algorithm for intuitive methods';
+options.method_name_2 = 'alternating algorithm for elegant methods';
+options.Q_1 = Q_intuitive;
+options.Q_2 = Q_elegant;
+visualization_orth_transf(A, B, options);
 
 

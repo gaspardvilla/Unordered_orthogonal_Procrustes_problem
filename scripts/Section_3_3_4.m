@@ -18,7 +18,7 @@ options.nb_grid_pts = 100;
 options.n = 10;
 options.d = 3;
 
-% Custom initialization
+% Custom set of points
 options.custom = "none";
 
 options.random = true;
