@@ -22,7 +22,7 @@ options.nb_tests = 100;
 options.custom = "none";
 
 % Smart initialization of the OT matrix X
-options.smart_init = true;
+options.smart_init = false;
 
 % It is recommanded to not tune the following parameters
 options.random = true;
@@ -90,6 +90,8 @@ disp(['Elegant methods is ', num2str(mean_speed), ' times faster than ' ...
 
 %% Visualization of the last test
 int_method = 'alternating algorithm for intuitive methods';
-visualization_orth_transf(A, B, B*Q_intuitive, options, int_method);
+ele_method = 'alternating algorithm for elegant methods';
+visualization_orth_transf(A, B, Q_intuitive, Q_elegant, options, ...
+                                                int_method, ele_method);
 
 

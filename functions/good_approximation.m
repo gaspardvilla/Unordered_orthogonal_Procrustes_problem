@@ -15,7 +15,7 @@ function truth = good_approximation(Q_true, Q_approx)
     truth = 0;
 
     % Check if the approximation is close or not 
-    if sum(abs(Q_true - Q_approx), 'all') < 1e-3
+    if sum(abs(Q_true - Q_approx), 'all') < 1e-1
         truth = 1;
     end
 end
