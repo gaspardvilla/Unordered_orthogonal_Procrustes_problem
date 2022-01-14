@@ -38,9 +38,6 @@ options.epsilon = 1e-1;
 % If true precise which inialization you want for Q and X
 options.custom_init = false;
 
-% Initialization of the data sets of points
-[A, B, Q_true, X_true] = initialization(options);
-
 
 %% Performances of the method
 % Initialization of the performances vector

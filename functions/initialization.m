@@ -22,7 +22,8 @@ function [A, B, Q, X] = initialization(options)
     else
         % First set of points
         A = (rand(options.n, options.d) * 2) - 1;
-        Q = randrot(options.d);
+        Manifold = stiefelfactory(options.d, options.d);
+        Q = Manifold.rand();
     end
 
     % Centers the mass center of the points in A

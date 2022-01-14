@@ -2,7 +2,7 @@
 
 % The idea of this script is to produce the results of performances 
 % we interpret in the section 3.3.2 of the report. 
-
+ 
 
 %% Code
 close all

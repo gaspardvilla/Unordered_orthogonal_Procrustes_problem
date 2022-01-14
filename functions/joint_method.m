@@ -16,7 +16,7 @@ function [Q_sol, X_sol] = joint_method(A, B, options)
     d = options.d;
 
     % We pose the problem instance
-    M1 = rotationsfactory(d);
+    M1 = stiefelfactory(d, d);
     M2 = multinomialdoublystochasticfactory(n);
 
     % Fix the manifold for X and Q variable

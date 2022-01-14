@@ -1,7 +1,7 @@
 %% Description
 
 % The idea of this script is to produce the results of performances 
-% we interpret in the section 4.1.2 of the report. 
+% we interpret in the section 4.2.2 of the report. 
 
 
 %% Code
@@ -31,14 +31,12 @@ options.stop_cond = 1e-3;
 % Number of methods tp test (only 1 here)
 options.nb_methods = 1;
 
-% We do not want entropic regularizer
-options.entropic_reg = false;
+% We want entropic regularizer
+options.entropic_reg = true;
+options.epsilon = 1e-1;
 
 % If true precise which inialization you want for Q and X
 options.custom_init = false;
-
-% Initialization of the data sets of points
-[A, B, Q_true, X_true] = initialization(options);
 
 
 %% Performances of the method
@@ -54,7 +52,7 @@ for test = 1 : options.nb_tests
     [A, B, Q_true, X_true] = initialization(options);
 
     % Intuitive method test
-    [Q_sol, X_sol] = joint_method(A, B, options);
+    Q_sol = one_variable_method(A, B, options);
     accuracy_vect(test) = good_approximation(Q_true', Q_sol);
 
 end
@@ -66,11 +64,11 @@ end
 mean_acc = mean(accuracy_vect);
 
 % Display the results
-disp(['Joint method has accuracy of ', num2str(mean_acc)]);
+disp(['Joint method fro one-variable problem has accuracy of ', num2str(mean_acc)]);
 
 
 %% Visualization of the last test
-options.method_name_1 = 'joint method';
+options.method_name_1 = 'one-variable problem';
 options.Q_1 = Q_sol;
 visualization_orth_transf(A, B, options);
 

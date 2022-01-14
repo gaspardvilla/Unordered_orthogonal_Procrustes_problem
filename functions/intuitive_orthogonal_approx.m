@@ -16,8 +16,8 @@ function Q_sol = intuitive_orthogonal_approx(A, B, X, options)
     % Initialization of d
     d = options.d;
 
-    % Create the problem for the orthogonal matrices
-    Manifold = rotationsfactory(d);
+    % Create the problem for the orthogonal matrices O(d) = Stiefel(d, d)
+    Manifold = stiefelfactory(d, d);
     problem_orth.M = Manifold;
     
     % Specify cost function and derivatives
